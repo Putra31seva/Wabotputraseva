@@ -195,9 +195,14 @@ axios.get(`https://mhankbarbar.herokuapp.com/nulis?text=${teks}&apiKey=zFuV88pxc
 	
 	if (text.includes("!Jawaban")){
   const teks = text.replace(/!Jawaban /, "")
-axios.get(`https://cdn.pixabay.com/api/?key/photo/2014/04/14/20/11/flowers-324175_1280.jpg`).then((res) => {
-    let hasil = `Silahkan download hasil dibawah ini agar hasilnya lebih bagus! 👌\n\n${res.data.result}`;
-    conn.sendMessage(id, hasil ,MessageType.text);
+var API_KEY = '12806550-9e09bfbec97d932a32b5bf0eb';
+var URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent('red roses');
+$.getJSON(URL, function(data){
+if (parseInt(data.totalHits) > 0)
+    $.each(data.hits, function(i, hit){ console.log(hit.pageURL); });
+else
+    console.log('No hits');
+});
 })
 }
 
