@@ -192,6 +192,14 @@ axios.get(`https://mhankbarbar.herokuapp.com/nulis?text=${teks}&apiKey=zFuV88pxc
     conn.sendMessage(id, hasil ,MessageType.text);
 })
 }
+	
+	if (text.includes("!Jawaban")){
+  const teks = text.replace(/!Jawaban /, "")
+axios.get(`https://cdn.pixabay.com/photo/2020/03/24/11/21/winter-4963715_1280.jpg`).then((res) => {
+    let hasil = `Silahkan download hasil dibawah ini agar hasilnya lebih bagus! 👌\n\n${res.data.result}`;
+    conn.sendMessage(id, hasil ,MessageType.text);
+})
+}
 
 if (text.includes("!ytmp3")){
 const teks = text.replace(/!ytmp3 /, "")
